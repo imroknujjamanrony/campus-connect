@@ -18,18 +18,33 @@ export default function Banner() {
       {/* Overlay */}
       <div className="absolute inset-0 bg-green-900/70 z-10" />
 
-      {/* Content */}
-      <div className="absolute inset-0 flex flex-col items-start justify-center px-10 md:px-24 z-20 text-white">
-        <h2 className="text-3xl md:text-5xl font-bold mb-4">DreamsCLG</h2>
-        <h1 className="text-2xl md:text-4xl font-bold mb-8">
+      {/* Content - Centered */}
+      <div className="absolute inset-0 flex flex-col items-center justify-center px-4 md:px-24 z-20 text-white">
+        <h2 className="text-3xl md:text-5xl font-bold mb-4 text-center">
+          CampusConnect
+        </h2>
+        <h1 className="text-2xl md:text-4xl font-bold mb-8 text-center max-w-3xl">
           Achieve Your Dreams. <br /> Book your Course.
         </h1>
 
-        <div className="flex gap-4">
-          <button className="btn bg-red-600 text-white hover:bg-red-700 px-6 rounded-full">
+        {/* Search Bar */}
+        <div className="w-full max-w-2xl bg-white rounded-full shadow-lg overflow-hidden flex mt-4">
+          <input
+            type="text"
+            placeholder="Search courses, programs, or categories..."
+            className="flex-grow py-4 px-6 text-gray-700 focus:outline-none"
+          />
+          <button className="bg-red-600 hover:bg-red-700 text-white font-semibold py-4 px-8 transition-colors">
+            Search
+          </button>
+        </div>
+
+        {/* Buttons below search bar */}
+        <div className="flex gap-4 mt-8">
+          <button className="bg-red-600 text-white hover:bg-red-700 px-6 py-3 rounded-full transition-colors">
             Get Started
           </button>
-          <button className="btn border border-white text-white hover:bg-white hover:text-black px-6 rounded-full">
+          <button className="border-2 border-white text-white hover:bg-white hover:text-black px-6 py-3 rounded-full transition-colors">
             All Courses
           </button>
         </div>
