@@ -1,4 +1,12 @@
+import Link from "next/link";
+
 export default function Navbar() {
+  const links = [
+    { path: "/", label: "Home" },
+    { path: "/colleges", label: "Colleges" },
+    { path: "/admission", label: "Admission" },
+    { path: "/my-college", label: "My College" },
+  ];
   return (
     <div className="navbar bg-base-100 shadow-sm">
       <div className="navbar-start">
@@ -24,52 +32,31 @@ export default function Navbar() {
             tabIndex={0}
             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
           >
-            <li>
-              <a>Item 1</a>
-            </li>
-            <li>
-              <a>Parent</a>
-              <ul className="p-2">
-                <li>
-                  <a>Submenu 1</a>
-                </li>
-                <li>
-                  <a>Submenu 2</a>
-                </li>
-              </ul>
-            </li>
-            <li>
-              <a>Item 3</a>
-            </li>
+            {links.map((link) => (
+              <Link key={link.path} href={link.path}>
+                {link.label}
+              </Link>
+            ))}
           </ul>
         </div>
         <a className="btn btn-ghost text-xl">daisyUI</a>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
-          <li>
-            <a>Item 1</a>
-          </li>
-          <li>
-            <details>
-              <summary>Parent</summary>
-              <ul className="p-2">
-                <li>
-                  <a>Submenu 1</a>
-                </li>
-                <li>
-                  <a>Submenu 2</a>
-                </li>
-              </ul>
-            </details>
-          </li>
-          <li>
-            <a>Item 3</a>
-          </li>
+          {links.map((link) => (
+            <li key={link.path}>
+              <Link href={link.path}>{link.label}</Link>
+            </li>
+          ))}
         </ul>
       </div>
       <div className="navbar-end">
-        <a className="btn">Button</a>
+        <Link href="/login" className="btn">
+          Login
+        </Link>
+        <Link href="/register" className="btn btn-primary ml-2">
+          Register
+        </Link>
       </div>
     </div>
   );
