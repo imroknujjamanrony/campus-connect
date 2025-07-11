@@ -1,6 +1,6 @@
 [
   {
-    "id": "bdc123",
+    "id": "1",
     "name": "BD Demo College",
     "image": "https://images.pexels.com/photos/256401/pexels-photo-256401.jpeg",
     "rating": 4.5,
@@ -11,7 +11,7 @@
     "sports": ["Football", "Cricket", "Table Tennis"]
   },
   {
-    "id": "tech456",
+    "id": "2",
     "name": "Tech Scholars Institute",
     "image": "https://images.pexels.com/photos/207691/pexels-photo-207691.jpeg",
     "rating": 4.7,
@@ -22,7 +22,7 @@
     "sports": ["Basketball", "Badminton", "Esports"]
   },
   {
-    "id": "rj789",
+    "id": "3",
     "name": "Rajshahi College",
     "image": "https://images.pexels.com/photos/289737/pexels-photo-289737.jpeg",
     "rating": 4.3,
@@ -33,7 +33,7 @@
     "sports": ["Volleyball", "Athletics", "Chess"]
   },
   {
-    "id": "dmc321",
+    "id": "4",
     "name": "Dhaka Model College",
     "image": "https://images.pexels.com/photos/289738/pexels-photo-289738.jpeg",
     "rating": 4.6,
@@ -44,7 +44,7 @@
     "sports": ["Basketball", "Cricket", "Swimming"]
   },
   {
-    "id": "mec654",
+    "id": "5",
     "name": "Modern Engineering College",
     "image": "https://images.pexels.com/photos/207692/pexels-photo-207692.jpeg",
     "rating": 4.8,
@@ -55,7 +55,7 @@
     "sports": ["Robotics Race", "Esports", "Chess"]
   },
   {
-    "id": "scc987",
+    "id": "6",
     "name": "Sylhet City College",
     "image": "https://images.pexels.com/photos/207697/pexels-photo-207697.jpeg",
     "rating": 4.2,
