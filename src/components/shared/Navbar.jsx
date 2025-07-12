@@ -1,6 +1,7 @@
 import Link from "next/link";
 
 export default function Navbar() {
+  const user = true;
   const links = [
     { path: "/", label: "Home" },
     { path: "/colleges", label: "Colleges" },
@@ -53,12 +54,19 @@ export default function Navbar() {
         </ul>
       </div>
       <div className="navbar-end">
-        <Link href="/login" className="btn">
-          Login
-        </Link>
-        <Link href="/register" className="btn btn-primary ml-2">
-          Register
-        </Link>
+        {user ? (
+          <button className="btn btn-primary ml-2">Logout</button>
+        ) : (
+          <>
+            {" "}
+            <Link href="/login" className="btn">
+              Login
+            </Link>
+            <Link href="/register" className="btn btn-primary ml-2">
+              Register
+            </Link>
+          </>
+        )}
       </div>
     </div>
   );
