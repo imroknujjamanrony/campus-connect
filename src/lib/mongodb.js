@@ -34,4 +34,6 @@ export const getCollection = async (collectionName) => {
 
 export const collection = {
   user_collection: "users",
+  admission_collection: "addmission",
+  reviews_collection: "reviews",
 };

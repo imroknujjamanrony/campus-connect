@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@smastrom/react-rating": "^1.5.0",
     "axios": "^1.10.0",
     "bd-instituition-list-by-solutya": "^1.2.0",
     "framer-motion": "^12.23.3",
