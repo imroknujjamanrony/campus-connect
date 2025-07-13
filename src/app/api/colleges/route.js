@@ -31,3 +31,22 @@ export async function POST(req) {
     return NextResponse.json({ error: "Failed to apply" }, { status: 500 });
   }
 }
+
+//get data
+
+// GET all colleges
+export async function GET() {
+  try {
+    const collegesCol = await getCollection(collection.colleges_collection); // Make sure `college_collection` exists in your `collection` object
+
+    const colleges = await collegesCol.find({}).toArray();
+
+    return NextResponse.json(colleges);
+  } catch (err) {
+    console.error("❌ Error fetching colleges:", err);
+    return NextResponse.json(
+      { error: "Failed to fetch college data." },
+      { status: 500 }
+    );
+  }
+}

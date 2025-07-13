@@ -1,5 +1,6 @@
 import Image from "next/image";
 import banner from "../../public/pexels-pixabay-247823.jpg";
+import Link from "next/link";
 
 export default function Banner() {
   return (
@@ -41,12 +42,12 @@ export default function Banner() {
 
         {/* Buttons below search bar */}
         <div className="flex gap-4 mt-8">
-          <button className="bg-red-600 text-white hover:bg-red-700 px-6 py-3 rounded-full transition-colors">
-            Get Started
-          </button>
-          <button className="border-2 border-white text-white hover:bg-white hover:text-black px-6 py-3 rounded-full transition-colors">
-            All Courses
-          </button>
+          <Link
+            href={"/colleges"}
+            className="border-2 border-white text-white hover:bg-white hover:text-black px-6 py-3 rounded-full transition-colors"
+          >
+            All Colleges
+          </Link>
         </div>
       </div>
     </div>

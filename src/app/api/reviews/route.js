@@ -4,7 +4,7 @@ import { NextResponse } from "next/server";
 export async function POST(req) {
   try {
     const body = await req.json();
-    const { collegeId, candidateName, review, rating, createdAt } = body;
+    const { collegeId, candidateName, review, rating, image, createdAt } = body;
 
     if (!collegeId || !review || !rating) {
       return NextResponse.json(
@@ -19,6 +19,7 @@ export async function POST(req) {
       candidateName,
       review,
       rating,
+      image,
       createdAt,
     });
 
@@ -27,6 +28,23 @@ export async function POST(req) {
     console.error("Review error:", err);
     return NextResponse.json(
       { error: "Failed to add review" },
+      { status: 500 }
+    );
+  }
+}
+
+// for get req
+
+export async function GET() {
+  try {
+    const reviewsCol = await getCollection(collection.reviews_collection);
+    const allReviews = await reviewsCol.find({}).toArray();
+
+    return NextResponse.json(allReviews);
+  } catch (err) {
+    console.error("❌ Failed to fetch reviews:", err);
+    return NextResponse.json(
+      { error: "Error loading reviews" },
       { status: 500 }
     );
   }

@@ -1,4 +1,6 @@
 import Link from "next/link";
+import logo from "../../../public/logo.png";
+import Image from "next/image";
 
 export default function Navbar() {
   const user = true;
@@ -41,6 +43,7 @@ export default function Navbar() {
           </ul>
         </div>
         <Link href={"/"} className="btn btn-ghost text-xl">
+          <Image src={logo} alt="logo" width={40} height={10}></Image>
           CampusConnect
         </Link>
       </div>

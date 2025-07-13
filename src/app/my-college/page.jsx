@@ -12,7 +12,7 @@ export default function MyCollegePage() {
   useEffect(() => {
     const fetchAdmissions = async () => {
       try {
-        const res = await axios.get("/api/admission"); // ✅ corrected spelling
+        const res = await axios.get("/api/addmission"); // ✅ corrected spelling
         setAdmissions(res.data);
       } catch (err) {
         console.error("Failed to fetch admissions:", err);
@@ -22,18 +22,49 @@ export default function MyCollegePage() {
     fetchAdmissions();
   }, []);
 
-  const handleReviewSubmit = async (admission) => {
+  // const handleReviewSubmit = async (addmission) => {
+  //   if (!reviewText || rating === 0) {
+  //     alert("⚠️ Please add both review and rating.");
+  //     return;
+  //   }
+
+  //   try {
+  //     const res = await axios.post("/api/reviews", {
+  //       collegeId: addmission.collegeId,
+  //       candidateName: addmission.candidateName,
+  //       review: reviewText,
+  //       rating,
+  //       image: addmission.imageURL,
+  //       createdAt: new Date(),
+  //     });
+
+  //     if (res.data.success) {
+  //       alert("✅ Review submitted!");
+  //       setReviewText("");
+  //       setRating(0);
+  //     }
+  //   } catch (err) {
+  //     console.error("Failed to submit review:", err);
+  //     alert("❌ Something went wrong.");
+  //   }
+  // };
+
+  const handleReviewSubmit = async (addmission) => {
     if (!reviewText || rating === 0) {
       alert("⚠️ Please add both review and rating.");
       return;
     }
 
+    // ✅ Debug log
+    console.log("addmission passed:", addmission);
+
     try {
       const res = await axios.post("/api/reviews", {
-        collegeId: admission.collegeId,
-        candidateName: admission.candidateName,
+        collegeId: addmission.collegeId,
+        candidateName: addmission.candidateName,
         review: reviewText,
         rating,
+        image: addmission.imageURL, // ✅ Must come from parameter, not from admissions
         createdAt: new Date(),
       });
 
@@ -66,6 +97,9 @@ export default function MyCollegePage() {
               {/* College Info */}
               <h2 className="text-2xl font-semibold text-indigo-700 mb-4">
                 📘 College ID: {admission.collegeId}
+              </h2>
+              <h2 className="text-2xl font-semibold text-indigo-700 mb-4">
+                📘 College Name: {admission.collegeName}
               </h2>
 
               <div className="space-y-2 text-gray-700">

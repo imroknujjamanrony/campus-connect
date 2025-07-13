@@ -2,12 +2,15 @@ import { collection, getCollection } from "@/lib/mongodb";
 import { NextRequest, NextResponse } from "next/server";
 
 export async function POST(req) {
+  console.log("✅ Reached /api/addmission endpoint");
+
   try {
     const body = await req.json();
 
     const {
       candidateName,
       subject,
+      collegeName,
       email,
       phone,
       address,
@@ -18,6 +21,7 @@ export async function POST(req) {
 
     if (
       !candidateName ||
+      !collegeName ||
       !subject ||
       !email ||
       !phone ||
@@ -36,6 +40,7 @@ export async function POST(req) {
 
     const result = await admissions.insertOne({
       candidateName,
+      collegeName,
       subject,
       email,
       phone,

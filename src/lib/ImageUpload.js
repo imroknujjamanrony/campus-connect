@@ -1,3 +1,5 @@
+import axios from "axios";
+
 export const imageUpload = async (file) => {
   try {
     const formData = new FormData();

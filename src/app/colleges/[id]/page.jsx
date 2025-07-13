@@ -1,4 +1,5 @@
 "use client";
+
 import { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
 import {
@@ -8,19 +9,28 @@ import {
   FaBookOpen,
   FaBolt,
 } from "react-icons/fa";
+import axios from "axios";
 
-export default function CollegeDetailsPage({ params }) {
-  const [colleges, setColleges] = useState([]);
+export default function CollegeDetailsPage() {
+  const [college, setCollege] = useState(null);
   const [loading, setLoading] = useState(true);
+  const params = useParams(); // e.g. { id: "64f..." }
 
   useEffect(() => {
-    fetch("/data.json")
-      .then((res) => res.json())
-      .then((data) => {
-        setColleges(data);
+    axios
+      .get("/api/colleges")
+      .then((res) => {
+        const foundCollege = res.data.find(
+          (item) => String(item._id) === params.id // Matching MongoDB _id with route param
+        );
+        setCollege(foundCollege || null);
+        setLoading(false);
+      })
+      .catch((err) => {
+        console.error("❌ Error fetching college:", err);
         setLoading(false);
       });
-  }, []);
+  }, [params.id]);
 
   if (loading) {
     return (
@@ -29,8 +39,6 @@ export default function CollegeDetailsPage({ params }) {
       </div>
     );
   }
-
-  const college = colleges.find((c) => c.id === params.id);
 
   if (!college) {
     return (
@@ -65,7 +73,7 @@ export default function CollegeDetailsPage({ params }) {
           </div>
 
           {/* Admission Process */}
-          <div className=" p-5 rounded-lg border border-base-300">
+          <div className="p-5 rounded-lg border border-base-300">
             <h2 className="text-xl font-semibold mb-2 flex items-center gap-2 text-blue-700">
               <FaCalendarAlt /> Admission Process
             </h2>
@@ -73,24 +81,24 @@ export default function CollegeDetailsPage({ params }) {
           </div>
 
           {/* Events */}
-          <div className=" p-5 rounded-lg border border-base-300">
+          <div className="p-5 rounded-lg border border-base-300">
             <h2 className="text-xl font-semibold mb-2 flex items-center gap-2 text-pink-700">
               <FaBolt /> Events
             </h2>
             <ul className="list-disc ml-5 text-gray-700">
-              {college.events.map((event, i) => (
+              {college.events?.map((event, i) => (
                 <li key={i}>{event}</li>
               ))}
             </ul>
           </div>
 
           {/* Sports */}
-          <div className=" p-5 rounded-lg border border-base-300">
+          <div className="p-5 rounded-lg border border-base-300">
             <h2 className="text-xl font-semibold mb-2 flex items-center gap-2 text-green-700">
               <FaFutbol /> Sports
             </h2>
             <ul className="list-disc ml-5 text-gray-700">
-              {college.sports.map((sport, i) => (
+              {college.sports?.map((sport, i) => (
                 <li key={i}>{sport}</li>
               ))}
             </ul>

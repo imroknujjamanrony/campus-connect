@@ -28,7 +28,7 @@ export default function CollegeCard({ college }) {
         <div className="card-actions justify-end">
           <button
             className="btn btn-primary btn-sm"
-            onClick={() => router.push(`/colleges/${college.id}`)}
+            onClick={() => router.push(`/colleges/${college._id}`)}
           >
             Details
           </button>
