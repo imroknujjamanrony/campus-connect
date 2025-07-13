@@ -1,4 +1,5 @@
 import Banner from "@/components/Banner";
+import FeaturedCollege from "@/components/FeaturedCollege";
 import GraduationGallery from "@/components/GraduationGallery";
 import ResearchSection from "@/components/ResearchSection";
 import ReviewSection from "@/components/ReviewSection";
@@ -8,7 +9,7 @@ export default function Home() {
   return (
     <div>
       <Banner></Banner>
-
+      <FeaturedCollege></FeaturedCollege>
       <GraduationGallery></GraduationGallery>
       <ResearchSection></ResearchSection>
       <ReviewSection></ReviewSection>
