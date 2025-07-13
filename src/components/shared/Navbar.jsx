@@ -9,6 +9,7 @@ export default function Navbar() {
     { path: "/colleges", label: "Colleges" },
     { path: "/admission", label: "Admission" },
     { path: "/my-college", label: "My College" },
+    { path: "/profile", label: "My Profile" },
   ];
   return (
     <div className="navbar bg-base-100 shadow-sm">
