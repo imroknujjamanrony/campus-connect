@@ -13,6 +13,7 @@
     "axios": "^1.10.0",
     "bd-instituition-list-by-solutya": "^1.2.0",
     "framer-motion": "^12.23.3",
+    "lucide-react": "^0.525.0",
     "mongodb": "^6.17.0",
     "next": "15.3.5",
     "react": "^19.0.0",
