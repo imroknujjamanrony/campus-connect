@@ -2,6 +2,7 @@ import NextAuth from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import GoogleProvider from "next-auth/providers/google";
 import GitHubProvider from "next-auth/providers/github";
+import { collection, getCollection } from "@/lib/mongodb";
 
 export const authOptions = {
   providers: [
@@ -49,6 +50,26 @@ export const authOptions = {
     error: "/auth/error",
   },
   callbacks: {
+    async signIn({ user, account, profile, email, credentials }) {
+      try {
+        const users = await getCollection(collection.user_collection);
+        const existingUser = await users.findOne({ email: user.email });
+        if (!existingUser) {
+          await users.insertOne({
+            email: user.email,
+            name: user.name,
+            image: user.image,
+            provider: account.provider,
+            providerAccountId: account.providerAccountId,
+            createdAt: new Date(),
+          });
+        }
+        return true;
+      } catch (error) {
+        console.log("error", error);
+        return false;
+      }
+    },
     async jwt({ token, user }) {
       if (user) {
         token.id = user._id;
