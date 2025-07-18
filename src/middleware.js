@@ -8,6 +8,8 @@ export const middleware = async (req) => {
   const { pathname } = req.nextUrl;
   const protectedRoute = ["/profile", "/my-college"];
 
+  const isProtected=protectedRoute.some((route)=>)
+
   if (pathname.startsWith("/profile") && !isAuth) {
     const loginUrl = new URL("/login", req.url);
     return NextResponse.redirect(loginUrl);
