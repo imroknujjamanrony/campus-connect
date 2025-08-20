@@ -32,6 +32,3 @@ export async function POST(req) {
     return NextResponse.json({ error: "Login failed" }, { status: 500 });
   }
 }
-
-//hello from bangladesh
-//hello from india
