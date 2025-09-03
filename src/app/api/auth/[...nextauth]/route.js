@@ -97,6 +97,4 @@ const handler = NextAuth(authOptions);
 
 export { handler as GET, handler as POST };
 
-//solve login and register problem
-//solve login and register problem
-//solve login and register problem
+//setup the api routes
