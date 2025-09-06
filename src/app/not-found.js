@@ -31,7 +31,7 @@ const PageNotFound = () => {
 
         {/* Heading */}
         <h2 className="text-3xl md:text-4xl font-semibold text-white mb-2 text-balance">
-          Oops! Page not found
+          Oops! Page not found 😕
         </h2>
 
         {/* Subtext */}
