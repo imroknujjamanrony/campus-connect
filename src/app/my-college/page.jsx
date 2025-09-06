@@ -10,6 +10,7 @@ export default function MyCollegePage() {
   const [rating, setRating] = useState(0);
 
   useEffect(() => {
+    //here i fetch the data using axios
     const fetchAdmissions = async () => {
       try {
         const res = await axios.get("/api/addmission"); // ✅ corrected spelling

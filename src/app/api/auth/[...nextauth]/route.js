@@ -4,7 +4,7 @@ import GoogleProvider from "next-auth/providers/google";
 import GitHubProvider from "next-auth/providers/github";
 import { collection, getCollection } from "@/lib/mongodb";
 //it is the same as api/auth/[...nextauth]/route.js
-//change the api
+
 export const authOptions = {
   providers: [
     CredentialsProvider({
