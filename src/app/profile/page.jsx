@@ -3,6 +3,7 @@ export default function ProfilePage() {
     <div>
       <h1>profile page</h1>
       <p>here it will for user profile</p>
+      <p>here it will for user profile</p>
     </div>
   );
 }
