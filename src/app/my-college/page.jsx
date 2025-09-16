@@ -165,6 +165,7 @@ export default function MyCollegePage() {
                   </button>
                 </div>
               </div>
+              <h1>hello</h1>
             </div>
           ))}
         </div>
